@@ -39,5 +39,13 @@ class RomanToDecimalTest : Spek({
             val decimal:Int = RomanToDecimal().convert("M")
             assertEquals(1000, decimal)
         }
+        it("should return 2 when value is II"){
+            val decimal:Int = RomanToDecimal().convert("II")
+            assertEquals(2, decimal)
+        }
+        it("should return 150 when value is CL"){
+            val decimal:Int = RomanToDecimal().convert("CL")
+            assertEquals(150, decimal)
+        }
     }
 })
