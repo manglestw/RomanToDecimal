@@ -10,7 +10,7 @@ class RomanNumber {
         return decimal
     }
 
-    private fun toDecimal(romanNumber: String):Int{
+    fun toDecimal(romanNumber: String):Int{
         return when (romanNumber) {
             "I" -> 1
             "V" -> 5
