@@ -23,5 +23,9 @@ class RomanToDecimalTest : Spek({
             val decimal:Int = RomanToDecimal().convert("IIV")
             assertEquals(3, decimal)
         }
+        it("should return 8 when value is VIII"){
+            val decimal:Int = RomanToDecimal().convert("VIII")
+            assertEquals(8, decimal)
+        }
     }
 })

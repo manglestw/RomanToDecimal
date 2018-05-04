@@ -10,7 +10,7 @@ class RomanNumber {
                 isSmallerThanMaxValueSoFar(romanNumber, i, maxValue) -> decimal -= toDecimal(romanNumber[i].toString())
                 else -> {
                     decimal +=toDecimal(romanNumber[i].toString())
-                    maxValue = decimal
+                    maxValue = toDecimal(romanNumber[i].toString())
                 }
             }
         }
