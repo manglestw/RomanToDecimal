@@ -4,19 +4,21 @@ class RomanNumber {
 
     fun calculateDecimal(romanNumber: String): Int {
         var decimal = 0
-        for (i in romanNumber.indices){
-            decimal += if (isSmallerThanNextSymbol(romanNumber, i)){
-                -toDecimal(romanNumber[i].toString())
-
-            }else {
-                toDecimal(romanNumber[i].toString())
+        var maxValue = 0
+        for (i in romanNumber.length - 1 downTo 0){
+            when {
+                isSmallerThanMaxValueSoFar(romanNumber, i, maxValue) -> decimal -= toDecimal(romanNumber[i].toString())
+                else -> {
+                    decimal +=toDecimal(romanNumber[i].toString())
+                    maxValue = decimal
+                }
             }
         }
         return decimal
     }
 
-    private fun isSmallerThanNextSymbol(romanNumber: String, i: Int) =
-        toDecimal(romanNumber[i].toString()) < toDecimal(romanNumber.elementAtOrNull(i + 1).toString())
+    private fun isSmallerThanMaxValueSoFar(romanNumber: String, i: Int, maxValue: Int) =
+        toDecimal(romanNumber[i].toString()) < maxValue
 
     fun toDecimal(romanNumber: String):Int{
         return when (romanNumber) {
