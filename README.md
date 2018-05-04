@@ -37,6 +37,5 @@ Example:
 - Gradle: 4.4.1
 
 <h3>Running the tests</h3>
-```
+
 gradle test
-```
