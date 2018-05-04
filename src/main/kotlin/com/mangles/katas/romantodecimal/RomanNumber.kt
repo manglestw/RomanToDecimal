@@ -7,7 +7,7 @@ class RomanNumber {
         var maxValue = 0
         for (i in romanNumber.length - 1 downTo 0){
             when {
-                isSmallerThanMaxValueSoFar(romanNumber, i, maxValue) -> decimal -= toDecimal(romanNumber[i].toString())
+                isSmallerThanMaxValueSoFar(romanNumber[i], maxValue) -> decimal -= toDecimal(romanNumber[i].toString())
                 else -> {
                     decimal +=toDecimal(romanNumber[i].toString())
                     maxValue = toDecimal(romanNumber[i].toString())
@@ -17,8 +17,8 @@ class RomanNumber {
         return decimal
     }
 
-    private fun isSmallerThanMaxValueSoFar(romanNumber: String, i: Int, maxValue: Int) =
-        toDecimal(romanNumber[i].toString()) < maxValue
+    private fun isSmallerThanMaxValueSoFar(romanNumber: Char, maxValue: Int) =
+        toDecimal(romanNumber.toString()) < maxValue
 
     fun toDecimal(romanNumber: String):Int{
         return when (romanNumber) {
